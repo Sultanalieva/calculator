@@ -1,0 +1,107 @@
+from tkinter import *
+
+window = Tk()
+
+window.title('Calculator')
+
+window.geometry('400x400')
+
+def input_into_entry(symbol):
+    entry.insert(END, symbol)
+    
+def clear():
+    entry.delete(0,END)
+    
+def count_result():
+    #reading the entry
+    text = entry.get()
+    result = 0
+   
+    if '+' in text:
+        splitted_text = text.split('+')
+        first = float(splitted_text[0])
+        second = float(splitted_text[1])
+        result = first + second
+        print(result)
+        
+    if '-' in text:
+        splitted_text = text.split('-')
+        first = float(splitted_text[0])
+        second = float(splitted_text[1])
+        result = first - second
+        print(result)
+        
+    if '/' in text:
+        splitted_text = text.split('/')
+        first = float(splitted_text[0])
+        second = float(splitted_text[1])
+        result = first / second
+        print(result)
+    
+    if '*' in text:
+        splitted_text = text.split('*')
+        first = float(splitted_text[0])
+        second = float(splitted_text[1])
+        result = first * second
+        print(result)
+        
+    clear()
+    
+    entry.insert(0, result)
+    
+entry = Entry(window, bg='pink',width=15,font=('', 20))
+entry.place(x=100, y=50, height=40,)
+
+btn1 = Button(window, fg='red', text='1', command = lambda : input_into_entry('1'))
+btn1.place(x=100, y=100, width=50, height=50)
+
+btn2 = Button(window, fg='red', text='2', command = lambda : input_into_entry('2'))
+btn2.place(x=150, y=100, width=50, height=50)
+
+btn3 = Button(window, fg='red', text='3', command = lambda : input_into_entry('3'))
+btn3.place(x=200, y=100, width=50, height=50)
+
+btn4 = Button(window, fg='red', text='4', command = lambda : input_into_entry('4'))
+btn4.place(x=100, y=150, width=50, height=50)
+
+btn5 = Button(window, fg='red', text='5', command = lambda : input_into_entry('5'))
+btn5.place(x=150, y=150, width=50, height=50)
+
+btn6 = Button(window, fg='red', text='6', command = lambda : input_into_entry('6'))
+btn6.place(x = 200, y=150, width=50, height=50)
+
+btn7 = Button(window, fg='red', text='7', command = lambda : input_into_entry('7'))
+btn7.place(x=100, y=200, width=50, height=50)
+
+btn8 = Button(window, fg='red', text='8', command = lambda : input_into_entry('8'))
+btn8.place(x=150, y=200, width=50, height=50)
+
+btn9 = Button(window, fg='red', text='9', command = lambda : input_into_entry('9'))
+btn9.place(x=200, y=200, width=50, height=50)
+
+
+btn_plus = Button(window, fg='red', text='+', command = lambda : input_into_entry('+'))
+btn_plus.place(x=250, y=100, width=50, height=50)
+
+btn_minus = Button(window, fg='red', text='-', command = lambda : input_into_entry('-'))
+btn_minus.place(x=250, y=150, width=50, height=50)
+
+btn_divide = Button(window, fg='red', text='/', command = lambda : input_into_entry('/'))
+btn_divide.place(x=250, y=200, width=50, height=50)
+
+btn_multiple = Button(window, fg='red', text='*', command = lambda : input_into_entry('*'))
+btn_multiple.place(x=250, y=250, width=50, height=50)
+
+btn_result = Button(window, fg='red', text='=', command = count_result)
+btn_result.place(x=200, y=250, width=50, height=50)
+
+btn_clear = Button(window, fg='red', text='CE', command = clear)
+btn_clear.place(x=150, y=250, width=50, height=50)
+
+btn_dot = Button(window, fg='red', text='.', command = lambda : input_into_entry('.'))
+btn_dot.place(x=100, y=250, width=50, height=50)
+
+btn0 = Button(window, fg='red', text='0', command = lambda : input_into_entry('0'))
+btn0.place(x=300, y=100, width=50, height=50)
+
+window.mainloop()
